@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7C22F7FF-E286-4477-B34E-BAED624E5F68}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Conventient.UnitTests</RootNamespace>
+    <AssemblyName>Conventient.UnitTests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.3.0.0-alpha-5\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Asserts\LambdaReducerTest.cs" />
+    <Compile Include="Asserts\LambdaStringTest.cs" />
+    <Compile Include="Asserts\VerifyTest.cs" />
+    <Compile Include="Expressions\LambdaTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestData\IHaveString.cs" />
+    <Compile Include="TestData\InnerObject.cs" />
+    <Compile Include="TestData\TestEnum.cs" />
+    <Compile Include="TestData\TestObject.cs" />
+    <Compile Include="TestData\ValueHolder.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Convenient.Asserts\Convenient.Asserts.csproj">
+      <Project>{3b6b6907-699e-452f-8dbf-9dead9ec53f1}</Project>
+      <Name>Convenient.Asserts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Convenient.Expressions\Convenient.Expressions.csproj">
+      <Project>{c559334e-7772-4474-b098-b7e082425d28}</Project>
+      <Name>Convenient.Expressions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Convenient.Reflection\Convenient.Reflection.csproj">
+      <Project>{04095ee0-5aa0-43a4-bc69-5b285200f1d6}</Project>
+      <Name>Convenient.Reflection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Convenient\Convenient.csproj">
+      <Project>{cadced91-1896-405d-a455-945135df78ea}</Project>
+      <Name>Convenient</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3B6B6907-699E-452F-8DBF-9DEAD9EC53F1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Convenient.Asserts</RootNamespace>
+    <AssemblyName>Convenient.Asserts</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\ExceptionStatementBuilder.cs" />
+    <Compile Include="Core\ICondition.cs" />
+    <Compile Include="Core\VerificationException.cs" />
+    <Compile Include="Extensions\LambdaExpressionExtensions.cs" />
+    <Compile Include="Be.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Throws.cs" />
+    <Compile Include="Verify.cs" />
+    <Compile Include="Visitors\LambdaString.cs" />
+    <Compile Include="Visitors\OperatorMap.cs" />
+    <Compile Include="Visitors\ParameterSwapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Convenient.Expressions\Convenient.Expressions.csproj">
+      <Project>{c559334e-7772-4474-b098-b7e082425d28}</Project>
+      <Name>Convenient.Expressions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Convenient.Reflection\Convenient.Reflection.csproj">
+      <Project>{04095ee0-5aa0-43a4-bc69-5b285200f1d6}</Project>
+      <Name>Convenient.Reflection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Convenient\Convenient.csproj">
+      <Project>{cadced91-1896-405d-a455-945135df78ea}</Project>
+      <Name>Convenient</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
